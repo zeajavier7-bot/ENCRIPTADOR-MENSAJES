@@ -1,0 +1,18 @@
+def encriptar(texto):
+    resultado = ""
+    for letra in texto:
+        resultado += chr(ord(letra) + 3)
+    return resultado
+
+def desencriptar(texto):
+    resultado = ""
+    for letra in texto:
+        resultado += chr(ord(letra) - 3)
+    return resultado
+
+mensaje = input("Escribe tu mensaje: ")
+
+encriptado = encriptar(mensaje)
+print("Mensaje encriptado:", encriptado)
+
+print("Mensaje desencriptado:", desencriptar(encriptado))
