@@ -1,18 +1,33 @@
-def encriptar(texto):
+def encriptar(texto, clave):
     resultado = ""
-    for letra in texto:
-        resultado += chr(ord(letra) + 3)
+    for i, letra in enumerate(texto):
+        desplazamiento = ord(clave[i % len(clave)])
+        resultado += chr(ord(letra) + desplazamiento % 5)
     return resultado
 
-def desencriptar(texto):
+def desencriptar(texto, clave):
     resultado = ""
-    for letra in texto:
-        resultado += chr(ord(letra) - 3)
+    for i, letra in enumerate(texto):
+        desplazamiento = ord(clave[i % len(clave)])
+        resultado += chr(ord(letra) - desplazamiento % 5)
     return resultado
 
-mensaje = input("Escribe tu mensaje: ")
+print("=== ENCRIPTADOR CON CLAVE ===")
+print("1. Encriptar")
+print("2. Desencriptar")
 
-encriptado = encriptar(mensaje)
-print("Mensaje encriptado:", encriptado)
+opcion = input("Elige una opción: ")
+clave = input("Escribe la clave secreta: ")
 
-print("Mensaje desencriptado:", desencriptar(encriptado))
+if opcion == "1":
+    mensaje = input("Escribe el mensaje: ")
+    print("Encriptado:", encriptar(mensaje, clave))
+
+elif opcion == "2":
+    mensaje = input("Escribe el mensaje encriptado: ")
+    print("Desencriptado:", desencriptar(mensaje, clave))
+
+else:
+    print("Opción no válida")
+
+input("Presiona Enter para salir...")
