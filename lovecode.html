@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Love Code 🔐</title>
+</head>
+<body>
+
+<h2>Love Code 🔐</h2>
+
+<p>Clave:</p>
+<input type="text" id="clave">
+
+<p>Mensaje:</p>
+<textarea id="mensaje" rows="4" cols="40"></textarea>
+
+<br><br>
+
+<button onclick="encriptar()">Encriptar</button>
+<button onclick="desencriptar()">Desencriptar</button>
+
+<p>Resultado:</p>
+<textarea id="resultado" rows="4" cols="40"></textarea>
+
+<script>
+function encriptar() {
+  let texto = document.getElementById("mensaje").value;
+  let clave = document.getElementById("clave").value;
+  let resultado = "";
+
+  for (let i = 0; i < texto.length; i++) {
+    let desplazamiento = clave.charCodeAt(i % clave.length);
+    resultado += String.fromCharCode(texto.charCodeAt(i) + (desplazamiento % 5));
+  }
+
+  document.getElementById("resultado").value = resultado;
+}
+
+function desencriptar() {
+  let texto = document.getElementById("mensaje").value;
+  let clave = document.getElementById("clave").value;
+  let resultado = "";
+
+  for (let i = 0; i < texto.length; i++) {
+    let desplazamiento = clave.charCodeAt(i % clave.length);
+    resultado += String.fromCharCode(texto.charCodeAt(i) - (desplazamiento % 5));
+  }
+
+  document.getElementById("resultado").value = resultado;
+}
+</script>
+
+</body>
+</html>
