@@ -1,144 +1,211 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Love Code 🔐</title>
+  <meta charset="UTF-8">
+  <title>Love Code 🔐</title>
+  <style>
+    body {
+      background: #0f172a;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
 
-<style>
-body {
-  background: #0f172a;
-  color: white;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
+    .background {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      pointer-events: none;
+    }
 
-.container {
-  background: #1e293b;
-  padding: 30px;
-  border-radius: 15px;
-  width: 320px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
+    .background span {
+      position: absolute;
+      color: rgba(0, 0, 0, 0.15);
+      font-size: 22px;
+      animation: float 20s linear infinite;
+    }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
+    .background span:nth-child(1) { left: 10%; top: 90%; animation-duration: 25s; }
+    .background span:nth-child(2) { left: 30%; top: 100%; animation-duration: 18s; }
+    .background span:nth-child(3) { left: 50%; top: 110%; animation-duration: 22s; }
+    .background span:nth-child(4) { left: 70%; top: 95%; animation-duration: 20s; }
+    .background span:nth-child(5) { left: 85%; top: 105%; animation-duration: 24s; }
+    .background span:nth-child(6) { left: 20%; top: 115%; animation-duration: 19s; }
+    .background span:nth-child(7) { left: 60%; top: 120%; animation-duration: 26s; }
+    .background span:nth-child(8) { left: 40%; top: 100%; animation-duration: 21s; }
+    .background span:nth-child(9) { left: 75%; top: 110%; animation-duration: 23s; }
 
-input, textarea {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  font-size: 14px;
-}
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.2;
+      }
+      80% {
+        opacity: 0.2;
+      }
+      100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
 
-textarea {
-  resize: none;
-}
+    .container {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 15px;
+      width: 320px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      z-index: 1;
+      position: relative;
+    }
 
-.buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
-}
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-button {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  background: #3b82f6;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
+    input, textarea {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
 
-button:hover {
-  background: #2563eb;
-}
+    textarea {
+      resize: vertical; /* Permite expandir verticalmente */
+      min-height: 50px; /* Altura mínima */
+      max-height: 300px; /* Altura máxima */
+    }
 
-.copy {
-  margin-top: 10px;
-  background: #22c55e;
-}
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
 
-.copy:hover {
-  background: #16a34a;
-}
+    button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #3b82f6;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.small {
-  text-align: center;
-  font-size: 12px;
-  margin-top: 10px;
-  opacity: 0.6;
-}
-</style>
+    button:hover {
+      background: #2563eb;
+    }
+
+    .copy {
+      margin-top: 10px;
+      background: #22c55e;
+    }
+
+    .copy:hover {
+      background: #16a34a;
+    }
+
+    .small {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 10px;
+      opacity: 0.6;
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
-  <h2>Love Code 🔐</h2>
-
-  <input type="text" id="clave" placeholder="Clave secreta">
-
-  <textarea id="mensaje" rows="3" placeholder="Escribe tu mensaje..."></textarea>
-
-  <div class="buttons">
-    <button onclick="encriptar()">Encriptar</button>
-    <button onclick="desencriptar()">Desencriptar</button>
+  <div class="background">
+    <span>encrypted</span>
+    <span>secret</span>
+    <span>just for us</span>
+    <span>enigma</span>
+    <span>cipher</span>
+    <span>trust</span>
+    <span>encrypted</span>
+    <span>secret</span>
+    <span>just for us</span>
   </div>
 
-  <textarea id="resultado" rows="3" placeholder="Resultado..."></textarea>
+  <div class="container">
+    <h2>Love Code 🔐</h2>
 
-  <button class="copy" onclick="copiar()">Copiar resultado</button>
+    <input type="text" id="clave" placeholder="Clave secreta">
 
-  <div class="small">
-    Mensajes solo para quien tiene la clave 🔐
+    <textarea id="mensaje" rows="3" placeholder="Escribe tu mensaje..."></textarea>
+
+    <div class="buttons">
+      <button onclick="encriptar()">Encriptar</button>
+      <button onclick="desencriptar()">Desencriptar</button>
+    </div>
+
+    <textarea id="resultado" rows="3" placeholder="Resultado..."></textarea>
+
+    <button class="copy" onclick="copiar()">Copiar resultado</button>
+
+    <div class="small">
+      Mensajes solo para quien tiene la clave 🔐
+    </div>
   </div>
-</div>
 
-<script>
-function encriptar() {
-  let texto = document.getElementById("mensaje").value;
-  let clave = document.getElementById("clave").value;
-  let resultado = "";
+  <script>
+    function encriptar() {
+      let texto = document.getElementById("mensaje").value;
+      let clave = document.getElementById("clave").value;
+      let resultado = "";
 
-  for (let i = 0; i < texto.length; i++) {
-    let desplazamiento = clave.charCodeAt(i % clave.length);
-    resultado += String.fromCharCode(texto.charCodeAt(i) + (desplazamiento % 5));
-  }
+      if (!clave) return alert("Pon una clave");
 
-  document.getElementById("resultado").value = resultado;
-}
+      for (let i = 0; i < texto.length; i++) {
+        let desplazamiento = clave.charCodeAt(i % clave.length);
+        resultado += String.fromCharCode(texto.charCodeAt(i) + (desplazamiento % 5));
+      }
 
-function desencriptar() {
-  let texto = document.getElementById("mensaje").value;
-  let clave = document.getElementById("clave").value;
-  let resultado = "";
+      document.getElementById("resultado").value = resultado;
+    }
 
-  for (let i = 0; i < texto.length; i++) {
-    let desplazamiento = clave.charCodeAt(i % clave.length);
-    resultado += String.fromCharCode(texto.charCodeAt(i) - (desplazamiento % 5));
-  }
+    function desencriptar() {
+      let texto = document.getElementById("mensaje").value;
+      let clave = document.getElementById("clave").value;
+      let resultado = "";
 
-  document.getElementById("resultado").value = resultado;
-}
+      if (!clave) return alert("Pon una clave");
 
-function copiar() {
-  let resultado = document.getElementById("resultado");
-  resultado.select();
-  document.execCommand("copy");
-  alert("Copiado 😏");
-}
-</script>
+      for (let i = 0; i < texto.length; i++) {
+        let desplazamiento = clave.charCodeAt(i % clave.length);
+        resultado += String.fromCharCode(texto.charCodeAt(i) - (desplazamiento % 5));
+      }
+
+      document.getElementById("resultado").value = resultado;
+    }
+
+    function copiar() {
+      let resultado = document.getElementById("resultado");
+      resultado.select();
+      document.execCommand("copy");
+      alert("Copiado 😏");
+    }
+  </script>
 
 </body>
 </html>
