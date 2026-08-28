@@ -12,7 +12,7 @@
     }
 
     body {
-      background: #0f172a;
+      background: #080b14;
       color: white;
       font-family: Arial, sans-serif;
       display: flex;
@@ -24,12 +24,13 @@
       overflow: hidden;
     }
 
+    /* =========================
+       FONDO
+       ========================= */
+
     .background {
       position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
+      inset: 0;
       z-index: 0;
       pointer-events: none;
       overflow: hidden;
@@ -37,92 +38,150 @@
 
     .background span {
       position: absolute;
+      bottom: -80px;
       color: rgba(255, 255, 255, 0.08);
-      font-size: 22px;
-      animation: float 20s linear infinite;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 3px;
       white-space: nowrap;
+
+      animation-name: ghostFloat;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
     }
 
     .background span:nth-child(1) {
-      left: 10%;
-      top: 90%;
-      animation-duration: 25s;
+      left: 5%;
+      animation-duration: 18s;
+      animation-delay: 1s;
+      font-size: 17px;
     }
 
     .background span:nth-child(2) {
-      left: 30%;
-      top: 100%;
-      animation-duration: 18s;
+      left: 18%;
+      animation-duration: 23s;
+      animation-delay: 7s;
+      font-size: 24px;
     }
 
     .background span:nth-child(3) {
-      left: 50%;
-      top: 110%;
-      animation-duration: 22s;
+      left: 32%;
+      animation-duration: 20s;
+      animation-delay: 3s;
+      font-size: 15px;
     }
 
     .background span:nth-child(4) {
-      left: 70%;
-      top: 95%;
-      animation-duration: 20s;
+      left: 47%;
+      animation-duration: 26s;
+      animation-delay: 11s;
+      font-size: 21px;
     }
 
     .background span:nth-child(5) {
-      left: 85%;
-      top: 105%;
-      animation-duration: 24s;
+      left: 61%;
+      animation-duration: 19s;
+      animation-delay: 5s;
+      font-size: 16px;
     }
 
     .background span:nth-child(6) {
-      left: 20%;
-      top: 115%;
-      animation-duration: 19s;
+      left: 76%;
+      animation-duration: 24s;
+      animation-delay: 9s;
+      font-size: 22px;
     }
 
     .background span:nth-child(7) {
-      left: 60%;
-      top: 120%;
-      animation-duration: 26s;
+      left: 88%;
+      animation-duration: 21s;
+      animation-delay: 2s;
+      font-size: 14px;
     }
 
     .background span:nth-child(8) {
-      left: 40%;
-      top: 100%;
-      animation-duration: 21s;
+      left: 12%;
+      animation-duration: 27s;
+      animation-delay: 14s;
+      font-size: 19px;
     }
 
     .background span:nth-child(9) {
-      left: 75%;
-      top: 110%;
-      animation-duration: 23s;
+      left: 38%;
+      animation-duration: 22s;
+      animation-delay: 8s;
+      font-size: 25px;
     }
 
-    @keyframes float {
+    .background span:nth-child(10) {
+      left: 68%;
+      animation-duration: 28s;
+      animation-delay: 4s;
+      font-size: 15px;
+    }
+
+    .background span:nth-child(11) {
+      left: 82%;
+      animation-duration: 20s;
+      animation-delay: 12s;
+      font-size: 18px;
+    }
+
+    .background span:nth-child(12) {
+      left: 53%;
+      animation-duration: 25s;
+      animation-delay: 16s;
+      font-size: 20px;
+    }
+
+    @keyframes ghostFloat {
+
       0% {
-        transform: translateY(0);
+        transform: translateY(0) translateX(0);
         opacity: 0;
       }
 
-      20% {
-        opacity: 0.2;
+      10% {
+        opacity: 0.08;
       }
 
-      80% {
-        opacity: 0.2;
+      30% {
+        opacity: 0.16;
+      }
+
+      50% {
+        opacity: 0.10;
+      }
+
+      75% {
+        opacity: 0.06;
       }
 
       100% {
-        transform: translateY(-120vh);
+        transform: translateY(-120vh) translateX(35px);
         opacity: 0;
       }
     }
 
+    /* =========================
+       TARJETA PRINCIPAL
+       ========================= */
+
     .container {
-      background: #1e293b;
+      background: rgba(30, 41, 59, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
       padding: 30px;
-      border-radius: 15px;
+      border-radius: 18px;
       width: min(420px, 100%);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        0 0 30px rgba(59, 130, 246, 0.05);
+
       z-index: 1;
       position: relative;
     }
@@ -130,12 +189,14 @@
     h2 {
       text-align: center;
       margin: 0 0 8px;
+      font-size: 27px;
+      letter-spacing: 1px;
     }
 
     .subtitle {
       text-align: center;
       font-size: 13px;
-      opacity: 0.65;
+      opacity: 0.6;
       margin-bottom: 22px;
     }
 
@@ -144,25 +205,29 @@
       font-size: 13px;
       margin-top: 12px;
       margin-bottom: 6px;
-      opacity: 0.85;
+      opacity: 0.8;
     }
 
     input,
     textarea {
       width: 100%;
       padding: 11px;
-      border-radius: 8px;
-      border: 1px solid transparent;
+      border-radius: 9px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       outline: none;
       font-size: 14px;
       font-family: Arial, sans-serif;
-      background: #f8fafc;
+
+      background: rgba(248, 250, 252, 0.97);
       color: #0f172a;
+
+      transition: 0.2s;
     }
 
     input:focus,
     textarea:focus {
       border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
     }
 
     textarea {
@@ -181,16 +246,24 @@
       flex: 1;
       padding: 11px;
       border: none;
-      border-radius: 8px;
+      border-radius: 9px;
+
       background: #3b82f6;
       color: white;
+
       cursor: pointer;
       font-size: 14px;
-      transition: 0.2s;
+      font-weight: 600;
+
+      transition:
+        transform 0.2s,
+        background 0.2s,
+        box-shadow 0.2s;
     }
 
     button:hover {
       background: #2563eb;
+      box-shadow: 0 5px 18px rgba(37, 99, 235, 0.25);
     }
 
     button:active {
@@ -200,6 +273,7 @@
     button:disabled {
       opacity: 0.6;
       cursor: wait;
+      box-shadow: none;
     }
 
     .copy {
@@ -210,6 +284,7 @@
 
     .copy:hover {
       background: #16a34a;
+      box-shadow: 0 5px 18px rgba(34, 197, 94, 0.2);
     }
 
     .status {
@@ -232,10 +307,11 @@
       text-align: center;
       font-size: 11px;
       margin-top: 15px;
-      opacity: 0.45;
+      opacity: 0.4;
     }
 
     @media (max-width: 480px) {
+
       body {
         padding: 12px;
       }
@@ -257,17 +333,30 @@
 
 <body>
 
+  <!-- =========================
+       PALABRAS FANTASMA
+       ========================= -->
+
   <div class="background">
-    <span>encrypted</span>
-    <span>secret</span>
-    <span>just for us</span>
-    <span>enigma</span>
-    <span>cipher</span>
-    <span>trust</span>
-    <span>encrypted</span>
-    <span>secret</span>
-    <span>just for us</span>
+
+    <span>SECRET</span>
+    <span>LOVE</span>
+    <span>ENCRYPTED</span>
+    <span>PRIVATE</span>
+    <span>CIPHER</span>
+    <span>TRUST</span>
+    <span>HIDDEN</span>
+    <span>JUST FOR US</span>
+    <span>CODE</span>
+    <span>SECRET</span>
+    <span>ENIGMA</span>
+    <span>LOVE CODE</span>
+
   </div>
+
+  <!-- =========================
+       APLICACIÓN
+       ========================= -->
 
   <div class="container">
 
@@ -277,7 +366,9 @@
       Secure message encryption
     </div>
 
-    <label for="clave">Secret password</label>
+    <label for="clave">
+      Secret password
+    </label>
 
     <input
       type="password"
@@ -286,7 +377,9 @@
       autocomplete="off"
     >
 
-    <label for="mensaje">Message</label>
+    <label for="mensaje">
+      Message
+    </label>
 
     <textarea
       id="mensaje"
@@ -295,16 +388,26 @@
     ></textarea>
 
     <div class="buttons">
-      <button id="encryptButton" onclick="encriptar()">
+
+      <button
+        id="encryptButton"
+        onclick="encriptar()"
+      >
         Encrypt
       </button>
 
-      <button id="decryptButton" onclick="desencriptar()">
+      <button
+        id="decryptButton"
+        onclick="desencriptar()"
+      >
         Decrypt
       </button>
+
     </div>
 
-    <label for="resultado">Result</label>
+    <label for="resultado">
+      Result
+    </label>
 
     <textarea
       id="resultado"
@@ -312,11 +415,17 @@
       placeholder="Encrypted or decrypted result..."
     ></textarea>
 
-    <button class="copy" onclick="copiar()">
+    <button
+      class="copy"
+      onclick="copiar()"
+    >
       Copy result
     </button>
 
-    <div id="status" class="status"></div>
+    <div
+      id="status"
+      class="status"
+    ></div>
 
     <div class="security-note">
       AES-GCM encryption • PBKDF2 key derivation • Random salt and IV
@@ -337,8 +446,8 @@
      * Encryption:
      * Password → PBKDF2 → AES-GCM → Base64
      *
-     * The encrypted message contains:
-     * LC1 + salt + IV + ciphertext
+     * Encrypted format:
+     * LC1.salt.iv.ciphertext
      */
 
     const PBKDF2_ITERATIONS = 600000;
@@ -346,54 +455,76 @@
     const IV_LENGTH = 12;
     const VERSION = "LC1";
 
+
     function mostrarEstado(mensaje) {
+
       document.getElementById("status").textContent = mensaje;
+
     }
+
 
     function obtenerClave() {
+
       return document.getElementById("clave").value;
+
     }
+
 
     function obtenerMensaje() {
+
       return document.getElementById("mensaje").value;
+
     }
 
+
     function convertirArrayABase64(array) {
+
       let binary = "";
 
       for (let i = 0; i < array.length; i++) {
+
         binary += String.fromCharCode(array[i]);
+
       }
 
       return btoa(binary);
+
     }
 
+
     function convertirBase64AArray(base64) {
+
       const binary = atob(base64);
+
       const array = new Uint8Array(binary.length);
 
       for (let i = 0; i < binary.length; i++) {
+
         array[i] = binary.charCodeAt(i);
+
       }
 
       return array;
+
     }
+
 
     async function derivarClave(password, salt) {
 
       const encoder = new TextEncoder();
 
-      const passwordKey = await crypto.subtle.importKey(
-        "raw",
-        encoder.encode(password),
-        {
-          name: "PBKDF2"
-        },
-        false,
-        [
-          "deriveKey"
-        ]
-      );
+      const passwordKey =
+        await crypto.subtle.importKey(
+          "raw",
+          encoder.encode(password),
+          {
+            name: "PBKDF2"
+          },
+          false,
+          [
+            "deriveKey"
+          ]
+        );
 
       return crypto.subtle.deriveKey(
         {
@@ -413,7 +544,9 @@
           "decrypt"
         ]
       );
+
     }
+
 
     async function encriptar() {
 
@@ -421,94 +554,103 @@
       const clave = obtenerClave();
 
       if (!clave) {
+
         alert("Enter a password.");
         return;
+
       }
 
       if (!texto) {
+
         alert("Enter a message to encrypt.");
         return;
+
       }
 
       if (clave.length < 8) {
-        alert("For better security, use a password with at least 8 characters.");
+
+        alert(
+          "For better security, use a password with at least 8 characters."
+        );
+
         return;
+
       }
 
-      const encryptButton = document.getElementById("encryptButton");
+      const encryptButton =
+        document.getElementById("encryptButton");
 
       try {
 
         encryptButton.disabled = true;
+
         mostrarEstado("Encrypting...");
 
         const encoder = new TextEncoder();
 
-        /*
-         * Generate a unique random salt.
-         * The salt does not need to be secret.
-         */
-        const salt = crypto.getRandomValues(
-          new Uint8Array(SALT_LENGTH)
-        );
+        const salt =
+          crypto.getRandomValues(
+            new Uint8Array(SALT_LENGTH)
+          );
 
-        /*
-         * Generate a unique random IV.
-         */
-        const iv = crypto.getRandomValues(
-          new Uint8Array(IV_LENGTH)
-        );
+        const iv =
+          crypto.getRandomValues(
+            new Uint8Array(IV_LENGTH)
+          );
 
-        /*
-         * Derive a 256-bit AES key from the password.
-         */
-        const key = await derivarClave(clave, salt);
+        const key =
+          await derivarClave(
+            clave,
+            salt
+          );
 
-        /*
-         * Encrypt the message using AES-GCM.
-         */
-        const encrypted = await crypto.subtle.encrypt(
-          {
-            name: "AES-GCM",
-            iv: iv
-          },
-          key,
-          encoder.encode(texto)
-        );
+        const encrypted =
+          await crypto.subtle.encrypt(
+            {
+              name: "AES-GCM",
+              iv: iv
+            },
+            key,
+            encoder.encode(texto)
+          );
 
-        /*
-         * Convert everything needed for decryption
-         * into Base64.
-         */
-        const saltBase64 = convertirArrayABase64(salt);
-        const ivBase64 = convertirArrayABase64(iv);
-        const encryptedBase64 = convertirArrayABase64(
-          new Uint8Array(encrypted)
-        );
+        const saltBase64 =
+          convertirArrayABase64(salt);
 
-        /*
-         * Final encrypted format:
-         *
-         * LC1.salt.iv.ciphertext
-         */
+        const ivBase64 =
+          convertirArrayABase64(iv);
+
+        const encryptedBase64 =
+          convertirArrayABase64(
+            new Uint8Array(encrypted)
+          );
+
         const resultado =
           `${VERSION}.${saltBase64}.${ivBase64}.${encryptedBase64}`;
 
-        document.getElementById("resultado").value = resultado;
+        document.getElementById("resultado").value =
+          resultado;
 
-        mostrarEstado("Message encrypted successfully 🔐");
+        mostrarEstado(
+          "Message encrypted successfully 🔐"
+        );
 
       } catch (error) {
 
         console.error(error);
 
-        mostrarEstado("Encryption error.");
+        mostrarEstado(
+          "Encryption error."
+        );
 
       } finally {
 
         encryptButton.disabled = false;
+
       }
+
     }
+
 
     async function desencriptar() {
 
@@ -516,75 +658,93 @@
       const clave = obtenerClave();
 
       if (!clave) {
+
         alert("Enter the password.");
         return;
+
       }
 
       if (!texto) {
+
         alert("Paste an encrypted message.");
         return;
+
       }
 
-      const decryptButton = document.getElementById("decryptButton");
+      const decryptButton =
+        document.getElementById("decryptButton");
 
       try {
 
         decryptButton.disabled = true;
+
         mostrarEstado("Decrypting...");
 
-        /*
-         * Expected format:
-         *
-         * LC1.salt.iv.ciphertext
-         */
-        const partes = texto.trim().split(".");
+        const partes =
+          texto.trim().split(".");
 
         if (partes.length !== 4) {
-          throw new Error("Invalid encrypted message format.");
+
+          throw new Error(
+            "Invalid encrypted message format."
+          );
+
         }
 
         const version = partes[0];
 
         if (version !== VERSION) {
-          throw new Error("Unsupported encryption version.");
+
+          throw new Error(
+            "Unsupported encryption version."
+          );
+
         }
 
-        const salt = convertirBase64AArray(partes[1]);
-        const iv = convertirBase64AArray(partes[2]);
-        const encrypted = convertirBase64AArray(partes[3]);
+        const salt =
+          convertirBase64AArray(partes[1]);
 
-        /*
-         * Derive the same AES key using:
-         * password + original salt.
-         */
-        const key = await derivarClave(clave, salt);
+        const iv =
+          convertirBase64AArray(partes[2]);
 
-        /*
-         * AES-GCM automatically verifies
-         * that the encrypted data has not been modified.
-         */
-        const decrypted = await crypto.subtle.decrypt(
-          {
-            name: "AES-GCM",
-            iv: iv
-          },
-          key,
-          encrypted
+        const encrypted =
+          convertirBase64AArray(partes[3]);
+
+        const key =
+          await derivarClave(
+            clave,
+            salt
+          );
+
+        const decrypted =
+          await crypto.subtle.decrypt(
+            {
+              name: "AES-GCM",
+              iv: iv
+            },
+            key,
+            encrypted
+          );
+
+        const decoder =
+          new TextDecoder();
+
+        const resultado =
+          decoder.decode(decrypted);
+
+        document.getElementById("resultado").value =
+          resultado;
+
+        mostrarEstado(
+          "Message decrypted successfully 🔓"
         );
-
-        const decoder = new TextDecoder();
-
-        const resultado = decoder.decode(decrypted);
-
-        document.getElementById("resultado").value = resultado;
-
-        mostrarEstado("Message decrypted successfully 🔓");
 
       } catch (error) {
 
         console.error(error);
 
-        document.getElementById("resultado").value = "";
+        document.getElementById("resultado").value =
+          "";
 
         mostrarEstado(
           "Unable to decrypt. Check the password and encrypted message."
@@ -593,31 +753,46 @@
       } finally {
 
         decryptButton.disabled = false;
+
       }
+
     }
+
 
     async function copiar() {
 
-      const resultado = document.getElementById("resultado");
+      const resultado =
+        document.getElementById("resultado");
 
       if (!resultado.value) {
+
         alert("There is nothing to copy.");
         return;
+
       }
 
       try {
 
-        await navigator.clipboard.writeText(resultado.value);
+        await navigator.clipboard.writeText(
+          resultado.value
+        );
 
-        mostrarEstado("Result copied to clipboard 📋");
+        mostrarEstado(
+          "Result copied to clipboard 📋"
+        );
 
       } catch (error) {
 
         resultado.select();
+
         document.execCommand("copy");
 
-        mostrarEstado("Result copied to clipboard 📋");
+        mostrarEstado(
+          "Result copied to clipboard 📋"
+        );
+
       }
+
     }
 
   </script>
